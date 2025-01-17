@@ -65,11 +65,23 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual(11, items[0].quality)
         
-    def quality_should_degrade_twice_as_fast_after_sell_date(self):
+    def test_quality_should_degrade_twice_as_fast_after_sell_date(self):
         items = [Item("product", 0, 10)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(8, items[0].quality)
+        
+    def test_sulfuras_should_not_change_in_quality(self):
+        items = [Item("Sulfuras, Hand of Ragnaros", 5, 10)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(10, items[0].quality)
+        
+    def test_sulfuras_should_not_change_in_sell_in(self):
+        items = [Item("Sulfuras, Hand of Ragnaros", 5, 10)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(5, items[0].sell_in)
 
         
 if __name__ == '__main__':
