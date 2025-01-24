@@ -5,7 +5,7 @@ from gilded_rose import Item, GildedRose
 
 
 class GildedRoseTest(unittest.TestCase):
-    def test_quality_for_concett_should_be_less_than_50_1(self):
+    def test_quality_for_concert_should_be_less_than_50_1(self):
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 5, 48)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
@@ -19,6 +19,12 @@ class GildedRoseTest(unittest.TestCase):
     
     def test_quality_for_concert_should_be_less_than_50_3(self):
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(50, items[0].quality)
+    
+    def test_quality_should_be_less_than_50(self):
+        items = [Item("Aged Brie", 5, 50)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(50, items[0].quality)
@@ -94,6 +100,12 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(6, items[0].quality)
+    
+    def test_quality_should_decrease_to_zero(self):
+        items = [Item("product", 5, 1)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(0, items[0].quality)
         
 if __name__ == '__main__':
     unittest.main()
