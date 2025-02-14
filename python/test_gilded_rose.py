@@ -107,5 +107,11 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual(0, items[0].quality)
         
+    def test_conjured_quality_should_not_be_lower_than_zero(self):
+        items = [Item("conjured product", 5, 1)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(0, items[0].quality)
+        
 if __name__ == '__main__':
     unittest.main()
