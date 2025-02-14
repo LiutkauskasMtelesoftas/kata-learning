@@ -55,11 +55,12 @@ class ConjuredUpdateStrategy(UpdateStrategyInterface):
         
 class StrategyContext:
     def get_strategy(item):
-        if "aged brie" in item.name.lower():
+        concert_substrings = ["concert", "backstage", "pass"]
+        if "brie" in item.name.lower():
             return AgedBrieUpdateStrategy()
         elif "sulfuras" in item.name.lower():
             return SulfurasUpdateStrategy()
-        elif "backstage pass" in item.name.lower():
+        elif any(concert in item.name.lower() for concert in concert_substrings):
             return BackstagePassUpdateStrategy()
         elif "conjured" in item.name.lower():
             return ConjuredUpdateStrategy()
