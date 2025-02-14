@@ -7,9 +7,9 @@ class GildedRose(object):
 
     def update_quality(self) -> None:
         
-        brie = "brie".lower()
+        brie = "brie"
         concert_substrings = ["concert", "backstage", "pass"]
-        sulfuras = "sulfuras".lower()
+        sulfuras = "sulfuras"
         quality_items = [brie, sulfuras] + concert_substrings
         
         for item in self.items:
