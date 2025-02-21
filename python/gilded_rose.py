@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys
-sys.path.append('Strategies')
-from Strategies.context import StrategyContext
+from strategy_context import StrategyContext
 
 class GildedRose(object):
 
