@@ -1,0 +1,6 @@
+from .update_strategy_interface import UpdateStrategyInterface
+from .backstage_passes import BackstagePassesUpdateStrategy
+from .aged_brie import AgedBrieUpdateStrategy
+from .conjured_item import ConjuredUpdateStrategy
+from .normal_item import NormalItemUpdateStrategy
+from .sulfuras import SulfurasUpdateStrategy
