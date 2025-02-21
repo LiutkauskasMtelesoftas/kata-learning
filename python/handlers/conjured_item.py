@@ -10,4 +10,3 @@ class ConjuredUpdateStrategy(UpdateStrategyInterface):
         elif item.quality == 1: item.quality -= 1
         if item.sell_in < 0 and item.quality >=2:  item.quality -=2 
         elif item.sell_in < 0 and item.quality == 1: item.quality -= 1
-            
