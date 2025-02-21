@@ -19,18 +19,12 @@ class NormalItemUpdateStrategyTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(0, items[0].quality)
-        
-    def test_quality_of_normal_product_should_decrease(self):
+
+    def test_quality_and_sell_in_of_normal_product_should_decrease(self):
         items = [Item("product", 5, 10)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEqual(9, items[0].quality)
-        
-    def test_sell_in_of_normal_product_should_decrease(self):
-        items = [Item("product", 5, 10)]
-        gilded_rose = GildedRose(items)
-        gilded_rose.update_quality()
-        self.assertEqual(4, items[0].sell_in)
+        self.assertEqual([4, 9], [items[0].sell_in, items[0].quality])
 
 if __name__ == '__main__':
     unittest.main()
