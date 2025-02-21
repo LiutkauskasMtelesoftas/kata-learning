@@ -3,14 +3,14 @@ from strategy_context import StrategyContext
 
 class GildedRose(object):
 
-    def __init__(self, items):
+    def __init__(self, items, strategy_context=None) -> None:
         self.items = items
+        self.strategy_context = strategy_context or StrategyContext()
 
     def update_quality(self) -> None:
         
         for item in self.items:
-            strategy_context = StrategyContext()
-            strategy = strategy_context.get_strategy(item)
+            strategy = self.strategy_context.get_strategy(item)
             strategy.update(item)
 
 class Item:

@@ -7,7 +7,7 @@ Suggestion: create a python virtual environment for this project. See the [docum
 ## Run the unit tests from the Command-Line
 
 ```
-python test_gilded_rose.py
+python -m unittest discover -s tests/unit -p "*.py" -f 
 ```
 
 ## Run the TextTest fixture from the Command-Line
