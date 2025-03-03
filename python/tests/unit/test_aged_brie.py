@@ -2,18 +2,18 @@ import unittest
 from gilded_rose import Item, GildedRose
 
 class AgedBrieUpdateStrategyTest(unittest.TestCase):
-    def test_brie_quality_should_be_less_than_50(self) -> None:
-        items = [Item("Aged Brie", 5, 50)]
-        gilded_rose = GildedRose(items)
-        gilded_rose.update_quality()
-        self.assertEqual(50, items[0].quality)
-
-    def test_brie_should_increase_in_quality_as_sell_in_decreases(self) -> None:
-        items = [Item("Aged Brie", 5, 10)]
-        gilded_rose = GildedRose(items)
-        gilded_rose.update_quality()
-        self.assertEqual([4, 11], [items[0].sell_in, items[0].quality])
-    
+    #write a test with tests cases like in backstage passes
+    def test_aged_brie(self) -> None:
+        test_cases = [
+            (Item("Aged Brie", 5, 50), [4, 50]),
+            (Item("Aged Brie", 5, 10), [4, 11])
+        ]
+        
+        for item, expected in test_cases:
+            with self.subTest(item=item):
+                gilded_rose = GildedRose([item])
+                gilded_rose.update_quality()
+                self.assertEqual(expected, [item.sell_in, item.quality])
         
 if __name__ == '__main__':
     unittest.main()
